@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <div class="content">
+        <div class="camera_area">
+            <h2>Camera Feed</h2>
+            <div class="button-group">
+                <button id="startButton">Start Camera</button>
+                <button id="stopButton">Stop Camera</button>
+            </div>
+            
+            <div class="video-container">
+                <img id="cameraFeed" src="{{ url_for('video_feed') }}" alt="live feed" style="display: none;">
+            </div>
+        </div>
+
+        <div class="last_entry_area">
+            <div class="img_info">
+                <h2>Last Entry</h2>
+                <img src="../static/images/person.jpg" id="lastEntryImage" alt="Last Entry Image">
+            </div>
+            <div class="lastEntryContent">
+                <h2>Person Details</h2>
+                <p id="lastEntryName">Name: John Doe</p>
+                <p id="lastEntryTime">Time: 12:00 PM</p>
+                <p id="lastEntryDate">Date: 2023-10-01</p>
+                <p id="lastEntryClub">Club: ROS</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.getElementById("startButton").onclick = function() {
+        document.getElementById("cameraFeed").src = "{{ url_for('video_feed') }}";
+        document.getElementById("cameraFeed").style.display = "block";
+    };
+
+    document.getElementById("stopButton").onclick = function() {
+        document.getElementById("cameraFeed").src = "";
+        document.getElementById("cameraFeed").style.display = "none";
+    };
+</script>
+{% endblock %}

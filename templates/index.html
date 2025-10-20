@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>AAS</title>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <img src="../static/images/logo.jpg" alt="logo" class="logo">
+            <h1>Welcome to the Automatic Attendance System</h1>
+            <img src="../static/images/logo.jpg" alt="logo" class="logo">
+        </div>
+        <div class="container">
+            <div class="sidebar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/attendance">Attendance</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/settings">Settings</a></li>
+            </ul>
+            </div>
+            {% block content %}
+            {% endblock %}
+            {% block script %}
+            {% endblock %}
+        </div>
+        
+    </div>
+</body>
+</html>
